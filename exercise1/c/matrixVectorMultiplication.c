@@ -84,68 +84,44 @@ double *matrixVectorMultiplicationJI(double **matrix, double *vector, double *re
 int main(void)
 {
     srand(time(NULL));
-    FILE *fp;
+    FILE *ij, *ji;
     clock_t start_t, end_t;
     double total_t;
     int size;
 
-    fp = fopen("../documents/c/csv/matrixVectorMultiplicationIJ.csv", "w+");
+    ij = fopen("../documents/c/csv/matrixVectorMultiplicationIJ.csv", "w+");
+    ji = fopen("../documents/c/csv/matrixVectorMultiplicationJI.csv", "w+");
 
-    for(int i=1;i<=25;i++)
+    for(int i=1;i<=6;i++)
     {
-        size = 1000*i;
+        size = 4500*i;
         double **matrix = fillMatrix(size);
         double *vector = fillVector(size);
+
         double *resultIJ = fillResultIJ(size);
-
         start_t = clock();
-
         resultIJ = matrixVectorMultiplicationIJ(matrix, vector, resultIJ, size);
-
         end_t = clock();
-
         total_t = ((double)(end_t - start_t)) / CLOCKS_PER_SEC;
         printf("\nIt took the computer %.6f s, to compute a %d degree matrix on IJ; i = %d\n", total_t, size,i);
-
-        fprintf(fp, "%d,%.6f\n", size, total_t);
-
-        freeMatrix(matrix, size);
-        free(vector);
+        fprintf(ij, "%d,%.6f\n", size, total_t);
         free(resultIJ);
-        start_t = 0;
-        end_t = 0;
-    }
 
-    fclose(fp);
-
-    fp = fopen("../documents/c/csv/matrixVectorMultiplicationJI.csv", "w+");
-
-    for(int i=1;i<=25;i++)
-    {
-        size = 1000*i;
-        double **matrix = fillMatrix(size);
-        double *vector = fillVector(size);
         double *resultJI = fillResultJI(size);
-
         start_t = clock();
-
         resultJI = matrixVectorMultiplicationJI(matrix, vector, resultJI, size);
-
         end_t = clock();
-
         total_t = ((double)(end_t - start_t)) / CLOCKS_PER_SEC;
         printf("\nIt took the computer %.6f s, to compute a %d degree matrix on JI; i = %d\n", total_t, size,i);
-
-        fprintf(fp, "%d,%.6f\n", size, total_t);
+        fprintf(ji, "%d,%.6f\n", size, total_t);
+        free(resultJI);
 
         freeMatrix(matrix, size);
         free(vector);
-        free(resultJI);
-        start_t = 0;
-        end_t = 0;
     }
 
-    fclose(fp);
+    fclose(ij);
+    fclose(ji);
 
     return 0;
 }
