@@ -10,8 +10,8 @@ call random_seed()
 open(1, file = '../documents/fortran/csv/matrixVectorMultiplicationIJ.csv', action = 'write')
 open(2, file = '../documents/fortran/csv/matrixVectorMultiplicationJI.csv', action = 'write')
 
-do n = 1, 12, 1
-    size = n*2000
+do n = 1, 6, 1
+    size = 4500 * n
     allocate(vector(size))
     allocate(matrix(size,size))
 
@@ -27,12 +27,8 @@ do n = 1, 12, 1
 
     total_t =  end_t - start_t
     print *, 'It took the computer', total_t, 'to compute a ',size,'degree matrix on IJ; i = ',n
-    write(1,*) size,";",total_t
+    write(1,*) size,",",total_t
     deallocate(resultIJ)
-
-    end_t = 0
-    start_t = 0
-    total_t = 0
 
     allocate(resultJI(size))
     call fillResultsVector(resultJI,size)

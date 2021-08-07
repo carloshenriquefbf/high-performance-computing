@@ -94,7 +94,7 @@ int main(void)
 
     for(int i=1;i<=6;i++)
     {
-        size = 4500*i;
+        size = 4500 * i;
         double **matrix = fillMatrix(size);
         double *vector = fillVector(size);
 
