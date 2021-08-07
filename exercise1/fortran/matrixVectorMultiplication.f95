@@ -10,8 +10,8 @@ call random_seed()
 open(1, file = '../documents/fortran/csv/matrixVectorMultiplicationIJ.csv', action = 'write')
 open(2, file = '../documents/fortran/csv/matrixVectorMultiplicationJI.csv', action = 'write')
 
-do n = 1, 5, 1
-    size = n*5000
+do n = 1, 12, 1
+    size = n*2000
     allocate(vector(size))
     allocate(matrix(size,size))
 
