@@ -2,7 +2,7 @@
 This is an exercise for UFRJ's High Performance Computing class. It's goal was to implement a matrix-vector multiplication on C and Fortran, first through a row-column order and then through a column-row order and compare the time it takes.
 Graph for C             |  Graph for Fortran
 :-------------------------:|:-------------------------:
-![](exercise1/documents/c/images/graph.png)  |  ![](exercise1/documents/fortran/images/graph.png)
+![](documents/c/images/graph.png)  |  ![](documents/fortran/images/graph.png)
 
 ## Getting Started
 
