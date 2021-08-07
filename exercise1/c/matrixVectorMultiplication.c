@@ -65,7 +65,7 @@ double *matrixVectorMultiplicationIJ(double **matrix, double *vector, double *re
 {
     for (int i = 0; i <= size; i++) {
         for (int j = 0; j <= size; j++) {
-            result[i] += matrix[i][j] * vector[j];
+            result[i] = result[i] + (matrix[i][j] * vector[j]);
         }
     }
     return result;
@@ -73,9 +73,9 @@ double *matrixVectorMultiplicationIJ(double **matrix, double *vector, double *re
 
 double *matrixVectorMultiplicationJI(double **matrix, double *vector, double *result, int size)
 {
-    for (int i = 0; i <= size; i++) {
-        for (int j = 0; j <= size; j++) {
-            result[i] += matrix[j][i] * vector[i];
+    for (int j = 0; j <= size; j++) {
+        for (int i = 0; i <= size; i++) {
+            result[i] = result[i] + (matrix[i][j] * vector[j]);
         }
     }
     return result;
