@@ -39,7 +39,7 @@ do n = 1, 6, 1
 
     total_t  =  end_t  - start_t
     print *, "It took the computer", total_t, "to compute a ",size,"degree matrix on JI; i = ",n
-    write(2,*) size,";",total_t
+    write(2,*) size,",",total_t
     deallocate(resultJI)
 
     deallocate(matrix)
