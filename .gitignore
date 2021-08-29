@@ -1,5 +1,5 @@
 exercise1/c/matrixVectorMultiplication
 exercise1/fortran/matrixVectorMultiplication
-exercise2/laplace
-exercise2/gmon.out
-exercise2/fixedLaplace
+exercise2/c/fixedLaplace
+exercise2/c/gmon.out
+exercise2/c/laplace
