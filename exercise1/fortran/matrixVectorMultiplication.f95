@@ -1,4 +1,4 @@
-program hello
+program matrixVectorMultiplication
 implicit none
 
 integer size, n
@@ -118,4 +118,4 @@ subroutine matrixVectorMultiplicationJI(matrix, vector, result, size)
     end do
 end
 
-end program hello
+end program matrixVectorMultiplication
