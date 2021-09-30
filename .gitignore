@@ -3,3 +3,5 @@ exercise1/fortran/matrixVectorMultiplication
 exercise2/c/fixedLaplace
 exercise2/c/gmon.out
 exercise2/c/laplace
+exercise4/c/laplace
+exercise4/c/fixedLaplace
