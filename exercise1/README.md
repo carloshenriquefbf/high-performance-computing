@@ -1,8 +1,15 @@
 # Exercise 1
 This is an exercise for UFRJ's High Performance Computing class. It's goal was to implement a matrix-vector multiplication on C and Fortran, first through a row-column order and then through a column-row order and compare the time it takes.
-Graph for C             |  Graph for Fortran
-:-------------------------:|:-------------------------:
-![](documents/c/images/graph.png)  |  ![](documents/fortran/images/graph.png)
+<table>
+  <tr>
+    <td>Graph for C</td>
+     <td>Graph for Fortran</td>
+  </tr>
+  <tr>
+    <td><img src="documents/c/images/graph.png" width=450 height=350></td>
+    <td><img src="documents/fortran/images/graph.png" width=450 height=350></td>
+  </tr>
+ </table>
 
 ## Getting Started
 
