@@ -53,7 +53,7 @@ Grid :: Grid(const int n_x, const int n_y) : nx(n_x), ny(n_y)
 
 Grid :: ~Grid()
 {
-    //#pragma omp parallel for
+    #pragma omp parallel for
     for (int i=0; i<nx; ++i) {
         delete [] u[i];
     }
