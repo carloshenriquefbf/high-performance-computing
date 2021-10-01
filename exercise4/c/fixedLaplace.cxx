@@ -38,12 +38,12 @@ Grid :: Grid(const int n_x, const int n_y) : nx(n_x), ny(n_y)
     dy = 1.0/Real(ny - 1);
 
     u = new Real* [nx];
-    //#pragma omp parallel for
+    #pragma omp parallel for
     for (int i=0; i<nx; ++i) {
         u[i] = new double [ny];
     }
 
-    //#pragma omp parallel for
+    #pragma omp parallel for
     for (int i=0; i<nx; ++i) {
         for (int j=0; j<ny; ++j) {
             u[i][j] = 0.0;
@@ -70,9 +70,9 @@ void Grid :: setBCFunc(Real (*f)(const Real, const Real))
     int i,j;
     /* Left and right sides. */
 
-    //#pragma omp parallel for \
-    //private(j,y)\
-    //shared(u)
+    #pragma omp parallel for \
+    private(j,y)\
+    shared(u)
     for (j=0; j<ny; ++j) {
         y = j*dy;
         u[0][j] = f(xmin, y);
@@ -80,9 +80,9 @@ void Grid :: setBCFunc(Real (*f)(const Real, const Real))
     }
     /* Top and bottom sides. */
 
-    //#pragma omp parallel for \
-    //private(i,x)\
-    //shared(u)
+    #pragma omp parallel for \
+    private(i,x)\
+    shared(u)
     for (i=0; i<nx; ++i) {
         x = i*dx;
         u[i][0] = f(x, ymin);
@@ -125,10 +125,10 @@ Real LaplaceSolver :: timeStep(const Real dt)
     Real **u = g->u;
     int i,j;
 
-    // #pragma omp parallel for \
-    // shared(dx2, dy2, u) \
-    // private(tmp, i, j) \
-    // reduction(+:err)
+    #pragma omp parallel for \
+    shared(dx2, dy2, u) \
+    private(tmp, i, j) \
+    reduction(+:err)
     for (int i=1; i<nx-1; ++i) {
         for (int j=1; j<ny-1; ++j) {
             tmp = u[i][j];

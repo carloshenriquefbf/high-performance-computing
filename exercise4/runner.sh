@@ -31,7 +31,7 @@ for nx in 512 1024 2048;
 do
     echo "Running laplace.cxx with no flags for nx = $nx..."
     echo -n "No flags;1;" >> $OUTPUT_PATH
-    echo $nx 100 0.0000000000000001 | $COMPILED_FILE >> $OUTPUT_PATH & pid=$!
+    echo $nx 1000 0.0000000000000001 | $COMPILED_FILE >> $OUTPUT_PATH & pid=$!
     loadingAnimation $pid
     echo "Done!"
 done
@@ -44,7 +44,7 @@ for nx in 512 1024 2048;
 do
     echo "Running laplace.cxx with -O3 flag for nx = $nx..."
     echo -n "-O3;1;" >> $OUTPUT_PATH
-    echo $nx 100 0.0000000000000001 | $COMPILED_FILE >> $OUTPUT_PATH & pid=$!
+    echo $nx 1000 0.0000000000000001 | $COMPILED_FILE >> $OUTPUT_PATH & pid=$!
     loadingAnimation $pid
     echo "Done!"
 done
@@ -60,7 +60,7 @@ do
     do
         echo "Running fixedLaplace.cxx with fopenmp flag for nx = $nx and using $counter thread(s)..."
         echo -n "-fopenmp;$counter;" >> $OUTPUT_PATH
-        echo $nx 100 0.0000000000000001 | $COMPILED_FILE >> $OUTPUT_PATH & pid=$!
+        echo $nx 1000 0.0000000000000001 | $COMPILED_FILE >> $OUTPUT_PATH & pid=$!
         loadingAnimation $pid
         echo "Done!"
     done
@@ -77,7 +77,7 @@ do
     do
         echo "Running fixedLaplace.cxx with fopenmp and O3 flag for nx = $nx and using $counter thread(s)..."
         echo -n "-fopenmp -O3;$counter;" >> $OUTPUT_PATH
-        echo $nx 100 0.0000000000000001 | $COMPILED_FILE >> $OUTPUT_PATH & pid=$!
+        echo $nx 1000 0.0000000000000001 | $COMPILED_FILE >> $OUTPUT_PATH & pid=$!
         loadingAnimation $pid
         echo "Done!"
     done
