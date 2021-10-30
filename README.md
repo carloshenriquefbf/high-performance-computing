@@ -1,3 +1,3 @@
-# Hight Performance Computing
+# High Performance Computing
 
-This is a repository for UFRJ's High Computing Performance class.
+This is a repository for UFRJ's High Computing Performance (COC472) class.
